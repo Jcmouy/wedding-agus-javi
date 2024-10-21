@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier & Agustina's Wedding</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="your-music-file.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button id="muteButton">Mute Music</button>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-content" data-aos="fade-in">
+            <h1>Javier & Agustina</h1>
+            <p>We are getting married on February 20, 2025!</p>
+            <div id="countdown"></div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" data-aos="fade-up">
+        <h2>Our Story</h2>
+        <p>Our journey started with a special moment...</p>
+        <img src="couple-photo.jpg" alt="Our Story">
+    </section>
+
+    <!-- Event Details Section -->
+    <section id="event-details" data-aos="fade-up">
+        <h2>Event Details</h2>
+        <p><strong>Date:</strong> February 20, 2025</p>
+        <p><strong>Location:</strong> Beautiful Beach Resort, Miami</p>
+        <p><strong>Ceremony Time:</strong> 5:00 PM</p>
+        <p><strong>Reception:</strong> 7:00 PM at the same venue</p>
+
+        <!-- Google Maps Integration -->
+        <div id="map"></div>
+    </section>
+
+    <!-- Wedding Party Section -->
+    <section id="wedding-party" data-aos="fade-up">
+        <h2>The Wedding Party</h2>
+        <div class="party-grid">
+            <div class="party-member">
+                <img src="bridesmaid1.jpg" alt="Bridesmaid">
+                <h3>Bridesmaid</h3>
+                <p>Best friend since childhood</p>
+            </div>
+            <div class="party-member">
+                <img src="groomsman1.jpg" alt="Groomsman">
+                <h3>Groomsman</h3>
+                <p>Brother and best man</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section id="rsvp" data-aos="fade-up">
+        <h2>RSVP</h2>
+        <form id="rsvp-form" onsubmit="submitRSVP(event)">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="guests">Number of Guests:</label>
+            <input type="number" id="guests" name="guests" required>
+            
+            <label for="attendance">Will you attend?</label>
+            <select id="attendance" name="attendance" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="submit">Submit RSVP</button>
+        </form>
+    </section>
+
+    <!-- Gift Registry Section -->
+    <section id="gift-registry" data-aos="fade-up">
+        <h2>Gift Registry</h2>
+        <p>If you would like to give us a gift, please visit our registry below:</p>
+        <a href="https://www.example.com" class="registry-button">Visit Gift Registry</a>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="gallery" data-aos="fade-up">
+        <h2>Our Gallery</h2>
+        <div class="gallery">
+            <a href="image1.jpg" data-lightbox="wedding-gallery">
+                <img src="image1-thumb.jpg" alt="Gallery Image 1">
+            </a>
+            <a href="image2.jpg" data-lightbox="wedding-gallery">
+                <img src="image2-thumb.jpg" alt="Gallery Image 2">
+            </a>
+            <a href="image3.jpg" data-lightbox="wedding-gallery">
+                <img src="image3-thumb.jpg" alt="Gallery Image 3">
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Thank you for being part of our special day!</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+</body>
+</html>
