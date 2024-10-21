@@ -1,119 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javier & Agustina's Wedding</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" />
-    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet" />
+    <meta name="description" content="Invitaciones digitales para eventos">
+    <meta name="keywords" content="invitaciones, digitales, tarjetas, boda, invitación, interactivas, casamiento, save the date, agenda la fecha, ideas invitación, tarjetas de 15, tarjetas eventos, wedding, matrimonio, ideas tarjetas, rsvp, modelos de invitacion, página de boda, página web de casamiento">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <title>Alexis & Victoria</title>
 </head>
 <body>
-
-    <!-- Background Music -->
-    <audio id="backgroundMusic" autoplay loop>
-        <source src="your-music-file.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <button id="muteButton">Mute Music</button>
-
-    <!-- Header Section -->
-    <header>
-        <div class="header-content" data-aos="fade-in">
-            <h1>Javier & Agustina</h1>
-            <p>We are getting married on February 20, 2025!</p>
-            <div id="countdown"></div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" data-aos="fade-up">
-        <h2>Our Story</h2>
-        <p>Our journey started with a special moment...</p>
-        <img src="couple-photo.jpg" alt="Our Story">
-    </section>
-
-    <!-- Event Details Section -->
-    <section id="event-details" data-aos="fade-up">
-        <h2>Event Details</h2>
-        <p><strong>Date:</strong> February 20, 2025</p>
-        <p><strong>Location:</strong> Beautiful Beach Resort, Miami</p>
-        <p><strong>Ceremony Time:</strong> 5:00 PM</p>
-        <p><strong>Reception:</strong> 7:00 PM at the same venue</p>
-
-        <!-- Google Maps Integration -->
-        <div id="map"></div>
-    </section>
-
-    <!-- Wedding Party Section -->
-    <section id="wedding-party" data-aos="fade-up">
-        <h2>The Wedding Party</h2>
-        <div class="party-grid">
-            <div class="party-member">
-                <img src="bridesmaid1.jpg" alt="Bridesmaid">
-                <h3>Bridesmaid</h3>
-                <p>Best friend since childhood</p>
-            </div>
-            <div class="party-member">
-                <img src="groomsman1.jpg" alt="Groomsman">
-                <h3>Groomsman</h3>
-                <p>Brother and best man</p>
+    <section class="audio-section">
+        <div class="container">
+            <div class="row">
+                <div class="audio-control">
+                    <audio id="backgroundMusic" loop>
+                        <source src="assets/musica.mp3" type="audio/mp3">
+                        Tu navegador no soporta este archivo de audio.
+                    </audio>
+                    <div class="audio-buttons">
+                        <img id="playButton" src="assets/img/icono-musica_play.svg" alt="Play" onclick="playAudio()" class="audio-icon">
+                        <img id="pauseButton" src="assets/img/icono-musica_pausa.svg" class="audio-icon hidden" onclick="pauseAudio()" alt="Pause">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- RSVP Form Section -->
-    <section id="rsvp" data-aos="fade-up">
-        <h2>RSVP</h2>
-        <form id="rsvp-form" onsubmit="submitRSVP(event)">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="guests">Number of Guests:</label>
-            <input type="number" id="guests" name="guests" required>
-            
-            <label for="attendance">Will you attend?</label>
-            <select id="attendance" name="attendance" required>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-            </select>
-
-            <button type="submit">Submit RSVP</button>
-        </form>
-    </section>
-
-    <!-- Gift Registry Section -->
-    <section id="gift-registry" data-aos="fade-up">
-        <h2>Gift Registry</h2>
-        <p>If you would like to give us a gift, please visit our registry below:</p>
-        <a href="https://www.example.com" class="registry-button">Visit Gift Registry</a>
-    </section>
-
-    <!-- Image Gallery -->
-    <section id="gallery" data-aos="fade-up">
-        <h2>Our Gallery</h2>
-        <div class="gallery">
-            <a href="image1.jpg" data-lightbox="wedding-gallery">
-                <img src="image1-thumb.jpg" alt="Gallery Image 1">
-            </a>
-            <a href="image2.jpg" data-lightbox="wedding-gallery">
-                <img src="image2-thumb.jpg" alt="Gallery Image 2">
-            </a>
-            <a href="image3.jpg" data-lightbox="wedding-gallery">
-                <img src="image3-thumb.jpg" alt="Gallery Image 3">
-            </a>
+    <section class="cover-section parallax d-flex justify-content-center align-items-center">
+        <div class="cover-logo fade-in">
+            <img src="assets/img/logo-portada.png" alt="Logo">
+            <div class="scroll-indicator"></div>
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>Thank you for being part of our special day!</p>
-    </footer>
+    <section class="countdown-section" id="countdown">
+        <div class="container">
+            <p class="countdown-message">¡Acompáñanos en la cuenta regresiva!</p>
+            <p id="countdownText" class="hidden">¡Hoy es el gran día!</p>
+            <div class="row justify-content-center countdown-timer" id="countdownNumbers">
+                <div class="col-md-1 col-2 d-flex flex-column justify-content-center p-0">
+                    <p class="countdown-number" id="days"></p>
+                    <p class="countdown-label">días</p>
+                </div>
+                <p class="countdown-separator">:</p>
+                <div class="col-md-1 col-2 d-flex flex-column justify-content-center p-0">
+                    <p class="countdown-number" id="hours"></p>
+                    <p class="countdown-label">hs</p>
+                </div>
+                <p class="countdown-separator">:</p>
+                <div class="col-md-1 col-2 d-flex flex-column justify-content-center p-0">
+                    <p class="countdown-number" id="minutes"></p>
+                    <p class="countdown-label">min</p>
+                </div>
+                <p class="countdown-separator">:</p>
+                <div class="col-md-1 col-2 d-flex flex-column justify-content-center p-0">
+                    <p class="countdown-number" id="seconds"></p>
+                    <p class="countdown-label">seg</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
-    <script src="script.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAU51NqIAsn8C2QIDuBQ3S60WqVeFbT31U&callback=initMap"></script>
+    <section class="event-details mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 event-column">
+                    <img src="assets/img/icono-anillos.svg" alt="Anillos" class="event-icon">
+                    <div class="event-info">
+                        <h4>Civil</h4>
+                        <p>21 de Noviembre a las 10:30 hs en la Oficina del Registro Civil, Montevideo.</p>
+                        <a target="_blank" href="https://maps.app.goo.gl/2qsCaE5D69Y4SLZY9" class="btn">LLEGAR A LA CEREMONIA</a>
+                    </div>
+                </div>
+                <div class="col-md-6 event-column">
+                    <img src="assets/img/icono-fiesta.svg" alt="Fiesta" class="event-icon">
+                    <div class="event-info">
+                        <h4>Ceremonia & Fiesta</h4>
+                        <p>22 de Noviembre a las 19:00 hs en Chacra La Rinconada, Montevideo.</p>
+                        <a target="_blank" href="https://maps.app.goo.gl/LjtJWYX38uQPd63z9" class="btn">LLEGAR A LA FIESTA</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="dress-code">
+        <div class="container">
+            <img src="assets/img/icono-dresscode.svg" alt="Dress Code" class="dress-code-icon">
+            <div class="dress-code-info">
+                <h4>DRESS CODE</h4>
+                <p>Vestimenta Formal Elegante.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gift-section">
+        <div class="container">
+            <img src="assets/img/icono-regalo.svg" alt="Regalo" class="gift-icon">
+            <div class="gift-info">
+                <p>Si deseas obsequiarnos algo, agradecemos tu contribución para la Luna de Miel de nuestros sueños.</p>
+                <a data-fancybox data-src="#hidden-cbu" href="javascript:;" class="btn btn-alt">Ver Datos Bancarios</a>
+                <div style="display: none;" id="hidden-cbu">
+                    <span class="title">Datos Bancarios</span>
+                    <ul>
+                        <li>BBVA Pesos y Dólares</li>
+                        <li>Nº 8523703</li>
+                        <li>Titular: ALEXIS CASTILLO</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-section">
+        <div class="content">
+            <img src="assets/img/icono-instagram.svg" alt="Instagram" class="instagram-icon">
+            <div class="instagram-info">
+                <span class="hashtag">@boda_alexyvicky</span>
+                <p>¡Preparate para nuestro gran día! Ya podés seguirnos en nuestra cuenta para ver todas las novedades del casamiento y etiquetarnos en tus fotos y videos.</p>
+                <a target="_blank" href="https://www.instagram.com/boda_alexyvicky" class="btn">Ver en Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="confirmation-section parallax d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="confirmation-info">
+                <h4>CONFIRMACIÓN DE ASISTENCIA</h4>
+                <p>Agradecemos tu apoyo confirmando asistencia antes del <span style="font-weight:600;">1ro de noviembre</span>.</p>
+                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSergm0qrDQGdT-XoEC5JnFwmW6wLZ8KwqleYKi4CNTpL_-R_Q/viewform?usp=sf_link" class="btn">Confirmar asistencia</a>
+            </div>
+            <img src="assets/img/icono-calendario.svg" alt="Calendario" class="calendar-icon">
+            <div class="calendar-info">
+                <p>¡Agendá la fecha en tu calendario!</p>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="calendarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        AGENDAR EVENTO
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="calendarDropdown">
+                        <a target="_blank" id="googleCalendarLink" class="dropdown-item" href="#"><img src="assets/img/icons8-calendario-de-google.svg" class="calendar-icon mr-3" alt="Google">Google</a>
+                        <a target="_blank" id="outlookCalendarLink" class="dropdown-item" href="#"><img src="assets/img/icons8-ms-outlook.svg" class="calendar-icon mr-3" alt="Outlook">Outlook</a>
+                        <a target="_blank" id="microsoft365CalendarLink" class="dropdown-item" href="#"><img src="assets/img/icons8-oficina-365.svg" class="calendar-icon mr-3" alt="Microsoft 365">Microsoft 365</a>
+                        <a target="_blank" id="appleCalendarLink" class="dropdown-item" href="#"><img src="assets/img/icons8-mac-os.svg" class="calendar-icon mr-3" alt="Apple">Apple</a>
+                        <a target="_blank" id="yahooCalendarLink" class="dropdown-item" href="#"><img src="assets/img/icons8-yahoo.svg" class="calendar-icon mr-3" alt="Yahoo">Yahoo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="songs-section">
+        <div class="container">
+            <img src="assets/img/icono-canciones.svg" alt="Canciones" class="songs-icon">
+            <div class="songs-info">
+                <h4>¿QUÉ CANCIONES NO PUEDEN FALTAR?</h4>
+                <p>¡Ayudanos sugiriendo las canciones que pensás que no pueden faltar en la fiesta!</p>
+                <a target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdeyOXXexLr_LalOr17U1oymvdgunD1XA9jtEyB4SyHs30_2A/viewform?usp=sf_link" class="btn">Sugerir canción</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="thank-you-section">
+        <div class="container">
+            <div class="thank-you-info">
+                <p>Gracias por acompañarnos y ser parte de este momento único e irrepetible para nosotros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer-section">
+        <div class="container">
+            <p>Invitaciones Digitales <a target="_blank" href="https://agendalafecha.com">Agendá la Fecha</a> 2024. Todos los derechos reservados <br>
+            <i class="fab fa-instagram"></i> <a target="_blank" href="https://www.instagram.com/agendalafecha/">agendalafecha</a></p>
+        </div>
+    </section>
+
+    <script>
+        var countdownDate = "11/22/2024 19:00:00";
+        var eventStartDate = "11/22/2024 19:00:00";
+        var eventEndDate = "11/22/2024 23:59:00";
+        var eventTitle = "Boda de Javier y Agustina";
+    </script>
+    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+    <script src="assets/js/jquery.fancybox.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>
