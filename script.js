@@ -49,22 +49,20 @@ function initMap() {
     });
 }
 
-// RSVP Form Submission to Google Sheets
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyqUcWZ5zJUWwfVi67t7CF-1JGYp1jFLIebnx5wfsd4uiwqMlITSUQMXyx0xvfGLS8K6g/exec'; // Replace with your Google Script URL
-const form = document.getElementById('rsvp-form');
+function submitRSVP(event) {
+    event.preventDefault();  // Prevent the page from reloading
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
+    const form = document.getElementById('rsvp-form');
     const formData = new FormData(form);
-    
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqUcWZ5zJUWwfVi67t7CF-1JGYp1jFLIebnx5wfsd4uiwqMlITSUQMXyx0xvfGLS8K6g/exec'; // Replace with your Google Script URL
+
     fetch(scriptURL, { method: 'POST', body: formData })
         .then(response => {
             alert('RSVP submitted successfully!');
-            form.reset(); // Clear the form after submission
+            form.reset();  // Clear the form after submission
         })
         .catch(error => {
             alert('Error submitting RSVP. Please try again.');
             console.error('Error!', error.message);
         });
-});
+}
