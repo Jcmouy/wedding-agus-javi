@@ -1,68 +1,36 @@
-// Initialize AOS (for animations on scroll)
-AOS.init();
+function playAudio() {
+    var audio = document.getElementById("backgroundMusic");
+    audio.play();
+    document.getElementById("playButton").classList.add("hidden");
+    document.getElementById("pauseButton").classList.remove("hidden");
+}
 
-// Countdown Timer
-const countdown = document.getElementById('countdown');
-const weddingDate = new Date('Feb 20, 2025 17:00:00').getTime();
+function pauseAudio() {
+    var audio = document.getElementById("backgroundMusic");
+    audio.pause();
+    document.getElementById("pauseButton").classList.add("hidden");
+    document.getElementById("playButton").classList.remove("hidden");
+}
 
-const interval = setInterval(() => {
-    const now = new Date().getTime();
-    const distance = weddingDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+function updateCountdown() {
+    var countDownDate = new Date(countdownDate).getTime();
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
 
     if (distance < 0) {
-        clearInterval(interval);
-        countdown.innerHTML = "The big day is here!";
+        document.getElementById("countdownText").innerHTML = "¡Hoy es el gran día!";
+        return;
     }
-}, 1000);
 
-// Background Music Controls
-const music = document.getElementById('backgroundMusic');
-const muteButton = document.getElementById('muteButton');
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-muteButton.addEventListener('click', () => {
-    if (music.paused) {
-        music.play();
-        muteButton.textContent = "Mute Music";
-    } else {
-        music.pause();
-        muteButton.textContent = "Play Music";
-    }
-});
-
-// Google Maps Integration
-function initMap() {
-    const location = { lat: 25.7617, lng: -80.1918 }; // Miami location
-    const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: location
-    });
-    const marker = new google.maps.Marker({
-        position: location,
-        map: map
-    });
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
 }
 
-function submitRSVP(event) {
-    event.preventDefault();  // Prevent the page from reloading
-
-    const form = document.getElementById('rsvp-form');
-    const formData = new FormData(form);
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqUcWZ5zJUWwfVi67t7CF-1JGYp1jFLIebnx5wfsd4uiwqMlITSUQMXyx0xvfGLS8K6g/exec'; // Replace with your Google Script URL
-
-    fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-            alert('RSVP submitted successfully!');
-            form.reset();  // Clear the form after submission
-        })
-        .catch(error => {
-            alert('Error submitting RSVP. Please try again.');
-            console.error('Error!', error.message);
-        });
-}
+setInterval(updateCountdown, 1000);
