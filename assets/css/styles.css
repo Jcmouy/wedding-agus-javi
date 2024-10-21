@@ -20,7 +20,7 @@ body {
 }
 
 .cover-section {
-    background-image: url('assets/img/cover-background.jpg');
+    background-image: url('https://jcmouy.github.io/wedding-agus-javi/assets/img/cover-background.jpg');
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -35,7 +35,7 @@ body {
 .scroll-indicator {
     width: 30px;
     height: 30px;
-    background: url('assets/img/scroll-down.png') no-repeat center center;
+    background: url('https://jcmouy.github.io/wedding-agus-javi/assets/img/scroll-down.png') no-repeat center center;
     margin: 20px auto;
 }
 
