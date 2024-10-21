@@ -50,7 +50,7 @@ function initMap() {
 }
 
 // RSVP Form Submission to Google Sheets
-const scriptURL = 'https://script.google.com/macros/s/YOUR_GOOGLE_SHEET_SCRIPT_URL_HERE/exec'; // Replace with your Google Script URL
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyqUcWZ5zJUWwfVi67t7CF-1JGYp1jFLIebnx5wfsd4uiwqMlITSUQMXyx0xvfGLS8K6g/exec'; // Replace with your Google Script URL
 const form = document.getElementById('rsvp-form');
 
 form.addEventListener('submit', (e) => {
