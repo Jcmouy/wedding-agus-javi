@@ -1,1 +1,163 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+.audio-section {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
+.audio-control {
+    text-align: center;
+}
+
+.audio-icon {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.cover-section {
+    background-image: url('assets/img/cover-background.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover-logo {
+    text-align: center;
+}
+
+.scroll-indicator {
+    width: 30px;
+    height: 30px;
+    background: url('assets/img/scroll-down.png') no-repeat center center;
+    margin: 20px auto;
+}
+
+.countdown-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.countdown-message {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+}
+
+.countdown-number {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.countdown-label {
+    font-size: 14px;
+}
+
+.event-details {
+    padding: 50px 0;
+}
+
+.event-column {
+    text-align: center;
+}
+
+.event-icon {
+    width: 60px;
+    height: 60px;
+}
+
+.dress-code {
+    background-color: #e9ecef;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.dress-code-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.gift-section {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.gift-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.instagram-section {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.instagram-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.confirmation-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.calendar-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.songs-section {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.songs-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.thank-you-section {
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer-section {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-section a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
